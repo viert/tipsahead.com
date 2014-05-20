@@ -3,10 +3,7 @@ layout: post
 title:  "Deal with node.js single-threadness"
 date:   2014-05-20 11:37:06
 categories: nodejs
-summary: "For the last 4 years I coded all my projects using Ruby on Rails. It suited me completely until I faced 
-          really high loads. Since then I began to search for alternatives. Everything I tried was not at least 10% as comfortable,
-          intuitive and elegant as RoR for me, so I kept on trying to speed up ruby using new faster language versions, rails cache 
-          system, event-based servers and so forth. Still I consider Rails to be the best choise for fast bootstrap of nearly any project."
+cut: 1140
 ---
 
 For the last 4 years I coded all my projects using Ruby on Rails. It suited me completely until I faced 

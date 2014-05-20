@@ -14,10 +14,8 @@ layout: default
                 <small class="meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</small>
             </header>
             <article class="post-content">
-                <p>
-                    {{ post.summary }}
-                </p>
-                <a href="{{ post.url }}">Read more...</a>
+                    {{ post.content | truncate: post.cut }}
+                <a href="{{ post.url }}">read more</a>
             </article>
             <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
             <div class="yashare-auto-init" data-yashareL10n="ru"  data-yashareLink="{{ post.url | prepend: site.url }}" data-yashareQuickServices="vkontakte,facebook,twitter,gplus" data-yashareTheme="counter"></div>
