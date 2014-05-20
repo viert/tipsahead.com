@@ -3,24 +3,24 @@ layout: post
 title:  "Deal with node.js single-threadness"
 date:   2014-05-20 11:37:06
 categories: nodejs
-summary: "For the last 4 years I code all my projects using Ruby on Rails. It suited me completely until I faced 
+summary: "For the last 4 years I coded all my projects using Ruby on Rails. It suited me completely until I faced 
           really high loads. Since then I began to search for alternatives. Everything I tried was not at least 10% as comfortable,
           intuitive and elegant as RoR for me, so I kept on trying to speed up ruby using new faster language versions, rails cache 
           system, event-based servers and so forth. Still I consider Rails to be the best choise for fast bootstrap of nearly any project."
 ---
 
-For the last 4 years I code all my projects using Ruby on Rails. It suited me completely until I faced 
+For the last 4 years I coded all my projects using Ruby on Rails. It suited me completely until I faced 
 really high loads. Since then I began to search for alternatives. Everything I tried was not at least 10% as comfortable,
 intuitive and elegant as RoR for me, so I kept on trying to speed up ruby using new faster language versions, rails cache 
 system, event-based servers and so forth. Still I consider Rails to be the best choise for fast bootstrap of nearly any
 project.
 
 Ok, a few days ago I've found [sails.js][sails] framework. It reminded me Rails much more than anything else among web 
-frameworks. To tell the truth there are [Grails] besides but I really don't like JVM and even can't explain to myself why. 
-My familiar Java-coder says it's ok, I'm just that kind of people :)
+frameworks that I know. To tell the truth there are [Grails] besides but I really don't like JVM and even can't explain to myself why. 
+My familiar Java-coder says it's ok, I'm just that kind of man :)
 
 So I've found [sails.js][sails] and tried to use it. It's really ok, every web programmer one way or another face with
-JavaScript so I gave node.js a chance. One simple synthetic benchmark convinced me it's already kind of cool.
+JavaScript so I gave node.js a chance. One simple synthetic benchmark convinced me it's already kind of cool thing.
 
 **Ruby code**
 {% highlight ruby %}
@@ -73,7 +73,7 @@ Simple arithmetic operations in node.js are 40 times faster. Also javascript int
  so it has to be fast also.
   
 One thing you can't get from JavaScript is multithreaded parallel execution of your code. Every node.js tutorial says 
-_"Everything in node.js runs parallel except your own code"_. What does it mean? Let's take we have simple sails.js 
+_"Everything in node.js runs in parallel except your own code"_. What does it mean? Let's take we have simple sails.js 
 application with two handlers: `/fast` and `/slow`. In your controller it may look like this:
 
 {% highlight javascript %}
@@ -93,7 +93,7 @@ module.exports = {
 If you run the app, get `/slow` handler from your browser and right away get `/fast` handler from another browser's tab,
  you'll see that fast handler works for the same 10 seconds i.e. it completes not before the completion of the slow 
  handler. That's it, node.js is single-threaded and **your code** always runs serially. It means node.js keeps on accepting
- connections but it can't run your handler in time so it just put this task to the queue for javascript event-loop. 
+ connections but it can't run your handler in time so it just put this task in the queue for javascript event-loop. 
  
 What can you do? The most right answer is _"You should avoid heavy calculations in your application"_. The most right 
  way is to use node.js as nothing more than template engine. It can handle user connections well, it also can get data
@@ -102,9 +102,10 @@ What can you do? The most right answer is _"You should avoid heavy calculations 
  then backend follows written in fast language with multithreading support, and the data store underneath.
  
 But what if we have no choice? If you ever used [Graphite] you know it can render graphs from hundred metrics aggregating
-them on-the-fly. Let's suppose we're making that kind of handler. Get hundred of metrics may be slow, but node.js do this
-work asynchronously without blocking the entire application. But then we have to reduce this results i.e. get **sum** of
-them and give back to user. Let's emulate heavy calculations:
+them on-the-fly. Let's suppose we're making that kind of handler. Getting hundred metrics may be slow, but node.js do this
+work asynchronously without blocking the entire application. But then we have to reduce this results i.e. to get **sum** of
+them and then to give the results back to user. Let's emulate these heavy calculations replacing it with the syntetic benchmark test
+we discussed above:
 
 {% highlight javascript %}
 module.exports = {
@@ -146,14 +147,13 @@ module.exports = {
 };
 {% endhighlight %}
 
-This code blocks app for a couple of ms while calculating a small portion of the whole big task. You can test the `/fast`
- handler is working pretty fast now. What happened? We just run task that consists of the portion of loops, to be more
+This code blocks app for a couple of milliseconds while calculating a small portion of the whole big task. You can test the `/fast`
+ handler to be sure it's working pretty fast now. What happened? We just run task that consists of the portion of loops, to be more
  precise, `step` loops at a time. Then we call setImmediate that just returns control to event loop and puts the next
  iteration of our task to the event-loop queue. If there are other callbacks in queue, they can run fast and then interpreter
  proceeds to the next iteration of the `slow` task.
   
-That's a bit complicated so I still recommend to avoid heavy calculations in Javascript.
-
+Problem seems to be resolved but the resolution looks a bit complicated so I still recommend to avoid heavy calculations in Javascript.
 
 
 [Graphite]: http://graphite.wikidot.com/
