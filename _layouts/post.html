@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="row">
+    <div class="small-12 medium-3 medium-push-9 columns">
+        {% include sidebar.html %}
+    </div>
+    <div class="small-12 medium-9 medium-pull-3 columns">
+        <div class="post">
+            <header class="post-header">
+                <h2>{{ page.title }}</h2>
+                <small class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</small>
+            </header>
+            <article class="post-content">
+                {{ content }}
+            </article>
+            <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+            <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="vkontakte,facebook,twitter,gplus" data-yashareTheme="counter"></div>
+        </div>
+    </div>
+</div>

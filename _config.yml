@@ -1,0 +1,10 @@
+# Site settings
+title: TipsAhead.com
+email: viert@tipsahead.com
+description: "Tips and tricks in web programming and system administration"
+baseurl: ""
+url: "http://tipsahead.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
