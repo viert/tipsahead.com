@@ -40,6 +40,8 @@ h1,h2,h3,h4,h5 {
     margin-bottom: 0;
 }
 
+.post-header h2 a:not(:hover) { color: black; }
+
 .post p {
     text-align: justify;
 }
