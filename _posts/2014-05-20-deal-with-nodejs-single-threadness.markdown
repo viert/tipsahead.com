@@ -14,7 +14,7 @@ project.
 
 Ok, a few days ago I've found [sails.js][sails] framework. It reminded me Rails much more than anything else among web 
 frameworks that I know. To tell the truth there are [Grails] besides but I really don't like JVM and even can't explain to myself why. 
-My familiar Java-coder says it's ok, I'm just that kind of man :)
+My friend java-coder says it's ok, I'm just that kind of man :)
 
 So I've found [sails.js][sails] and tried to use it. It's really ok, every web programmer one way or another face with
 JavaScript so I gave node.js a chance. One simple synthetic benchmark convinced me it's already kind of cool thing.
