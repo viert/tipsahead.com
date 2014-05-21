@@ -3,7 +3,7 @@ layout: post
 title:  "Deal with node.js single-threadness"
 date:   2014-05-20 11:37:06
 categories: nodejs
-cut: 1140
+cut: 1138
 ---
 
 For the last 4 years I coded all my projects using Ruby on Rails. It suited me completely until I faced 
