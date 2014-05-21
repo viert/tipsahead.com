@@ -50,6 +50,12 @@ h1,h2,h3,h4,h5 {
     margin-bottom: 20px;
 }
 
+.post:not(:last-child) {
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
 /* CODE */
 
 code {

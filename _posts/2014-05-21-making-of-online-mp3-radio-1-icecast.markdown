@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Making of online MP3 radio: 1. Icecast"
-date: 2014-05-21 12:00:00
+date: 2014-05-21 14:46:12
 categories: radio
-cut: 1055
+cut: 1415
 ---
 
 One of my main own projects is online mp3 radiostation [viert.fm]. Actually once I've decided to make an online 
