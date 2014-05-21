@@ -81,7 +81,10 @@ code {
 .post ul,
 .post ol { margin-left: 1.35em; }
 
-.post pre code { border: none; }
+.post pre code {
+    border: none;
+    padding: 1px 0;
+}
 
 /* terminal */
 .post pre.terminal {
