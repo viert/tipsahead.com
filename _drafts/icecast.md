@@ -6,10 +6,9 @@ categories: radio
 cut: 1055
 ---
 
-If you've never visited [viert.fm], maybe it's time. Once I've found myself listening to radiostation and thinking "Man,
-I always wanted to be a DJ!" 
+One of my main own projects is online mp3 radiostation [viert.fm]. 
 
-Well I'm just kidding. Actually once I've decided to try making live online-radio show. I won't speak about client-side
+Actually once I've decided to try making live online-radio show. I won't speak about client-side
 application for broadcasting, it's a big deal and not a part of a tech blog. But the main idea is that I've decided to
 make an online radio to broadcast at least shuffled playlist. Then the idea grew bigger: shuffle must be smart enough
 not to play the same artist in a row, there must be the queue to allow users to order their favorite songs. And users
